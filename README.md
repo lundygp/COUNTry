@@ -7,3 +7,4 @@ Added image.
 Added button but doesn't work yet.
 Changed the launcher logo to a globe image.
 Locked the orientation to portrait.
+Commented out the settings button of the toolbar in menu xml and main code.
