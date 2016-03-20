@@ -16,7 +16,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/appName"
         android:id="@+id/titleView"
-        android:layout_gravity="top"
         android:textAlignment="center"
         android:layout_weight="1"
         android:gravity="center"
