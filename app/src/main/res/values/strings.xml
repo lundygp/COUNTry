@@ -13,7 +13,6 @@
         <item>Luxembourg</item>
         <item>Portugal</item>
         <item>Spain</item>
-        <item>Sweden</item>
-        <item>Switzerland</item>
+        <item>Sweden</item><item>Switzerland</item>
     </string-array>
 </resources>
