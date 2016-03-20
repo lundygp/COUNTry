@@ -20,11 +20,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectActivity"
-            android:label="@string/title_activity_select"
+            android:name=".Select"
+            android:label="Select"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="com.example.country.SelectActivity" />
+                <action android:name="com.example.country.Select" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

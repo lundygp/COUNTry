@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent proceed = new Intent("com.example.country.SelectActivity");
+                        Intent proceed = new Intent("com.example.country.Select");
                         startActivity(proceed);
                     }
                 }
