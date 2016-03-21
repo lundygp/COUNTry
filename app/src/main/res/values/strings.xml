@@ -21,4 +21,7 @@
 
 
     </string-array>
-</resources>
+    <string name="title_activity_results">Results</string>
+    <string name="frequencyHeading">Times Visited</string>
+    <string name="countryHeading">Country</string>
+    </resources>
