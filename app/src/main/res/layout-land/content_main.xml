@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:id="@+id/introImage"
-        android:src="@drawable/europe_map"
+        android:src="@drawable/europe_mapold"
         android:layout_weight="3" />
 
     <Button
