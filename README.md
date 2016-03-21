@@ -16,3 +16,5 @@ Unlocked the orientation for the first activity and made a GUI suited to landsca
 Created a text box and spinner in the second activity.
 Added further countries to the country list array.
 Implemented the country list array into the spinner and created a toast to show user the current selection.
+Made a third blank activity, removed the floating action button and changed the action bar title.
+Made a heading row and three country rows in a table style format using several layouts.
