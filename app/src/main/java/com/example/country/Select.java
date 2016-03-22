@@ -19,7 +19,7 @@ public class Select extends AppCompatActivity {
     Spinner spinnerCountry;
     ArrayAdapter<CharSequence> adapter;
     public static Button next2;
-    TextWatcher count;
+    //TextWatcher count;
 
     //Declaring all objects of type country
     country Austria = new country("Austria");
@@ -51,8 +51,8 @@ public class Select extends AppCompatActivity {
         afterSecondClick();
 
         //Creating a listener for the input field
-        EditText inputFrequency = (EditText)findViewById(R.id.inputFrequency);
-        inputFrequency.addTextChangedListener(count);
+        /*EditText inputFrequency = (EditText)findViewById(R.id.inputFrequency);
+        inputFrequency.addTextChangedListener(count);*/
 
         //sortFunction(countryList);
         spinnerCountry = (Spinner)findViewById(R.id.dropdown);
