@@ -22,3 +22,4 @@ Removed the toast from the second activity
 Added an image view that displays the flag of the country selected in the spinner.
 Added a text field for user input along with its heading
 Created a array of type country and made an algorithm to sort entries
+#Need to lock orientation for second and third activities
