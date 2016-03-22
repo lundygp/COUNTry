@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -17,8 +19,27 @@ public class Select extends AppCompatActivity {
     Spinner spinnerCountry;
     ArrayAdapter<CharSequence> adapter;
     public static Button next2;
+    TextWatcher count;
 
+    //Declaring all objects of type country
+    country Austria = new country("Austria");
+    country Belgium = new country("Belgium");
+    country Denmark = new country("Denmark");
+    country England = new country("England");
+    country France = new country("France");
+    country Germany = new country("Germany");
+    country Ireland = new country("Ireland");
+    country Italy = new country("Italy");
+    country Luxembourg = new country("Luxembourg");
+    country Portugal = new country("Portugal");
+    country Spain = new country("Spain");
+    country Sweden = new country("Sweden");
+    country Switzerland = new country("Switzerland");
+    country Wales = new country("Wales");
 
+    //Creating an array of type country in preparation for sorting
+    country[] countryList = {Austria, Belgium, Denmark,England,France,
+            Germany,Ireland,Italy,Luxembourg,Portugal,Spain,Sweden,Switzerland,Wales};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,25 +50,9 @@ public class Select extends AppCompatActivity {
         setSupportActionBar(toolbar);
         afterSecondClick();
 
-        //Declaring all objects of type country
-        country Austria = new country("Austria");
-        country Belgium = new country("Belgium");
-        country Denmark = new country("Denmark");
-        country England = new country("England");
-        country France = new country("France");
-        country Germany = new country("Germany");
-        country Ireland = new country("Ireland");
-        country Italy = new country("Italy");
-        country Luxembourg = new country("Luxembourg");
-        country Portugal = new country("Portugal");
-        country Spain = new country("Spain");
-        country Sweden = new country("Sweden");
-        country Switzerland = new country("Switzerland");
-        country Wales = new country("Wales");
-
-        //Creating an array of type country in preparation for sorting
-        country[] countryList = {Austria, Belgium, Denmark,England,France,
-                Germany,Ireland,Italy,Luxembourg,Portugal,Spain,Sweden,Switzerland,Wales};
+        //Creating a listener for the input field
+        EditText inputFrequency = (EditText)findViewById(R.id.inputFrequency);
+        inputFrequency.addTextChangedListener(count);
 
         //sortFunction(countryList);
         spinnerCountry = (Spinner)findViewById(R.id.dropdown);

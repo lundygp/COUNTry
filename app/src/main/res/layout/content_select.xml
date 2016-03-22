@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/inputFrequency"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal" />
