@@ -18,3 +18,7 @@ Added further countries to the country list array.
 Implemented the country list array into the spinner and created a toast to show user the current selection.
 Made a third blank activity, removed the floating action button and changed the action bar title.
 Made a heading row and three country rows in a table style format using several layouts.
+Removed the toast from the second activity
+Added an image view that displays the flag of the country selected in the spinner.
+Added a text field for user input along with its heading
+Created a array of type country and made an algorithm to sort entries
