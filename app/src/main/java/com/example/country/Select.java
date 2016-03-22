@@ -1,11 +1,13 @@
 package com.example.country;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -14,6 +16,7 @@ public class Select extends AppCompatActivity {
     ImageView flagChoiceView;
     Spinner spinnerCountry;
     ArrayAdapter<CharSequence> adapter;
+    public static Button next2;
 
 
 
@@ -24,6 +27,29 @@ public class Select extends AppCompatActivity {
         setContentView(R.layout.activity_select);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        afterSecondClick();
+
+        //Declaring all objects of type country
+        country Austria = new country("Austria");
+        country Belgium = new country("Belgium");
+        country Denmark = new country("Denmark");
+        country England = new country("England");
+        country France = new country("France");
+        country Germany = new country("Germany");
+        country Ireland = new country("Ireland");
+        country Italy = new country("Italy");
+        country Luxembourg = new country("Luxembourg");
+        country Portugal = new country("Portugal");
+        country Spain = new country("Spain");
+        country Sweden = new country("Sweden");
+        country Switzerland = new country("Switzerland");
+        country Wales = new country("Wales");
+
+        //Creating an array of type country in preparation for sorting
+        country[] countryList = {Austria, Belgium, Denmark,England,France,
+                Germany,Ireland,Italy,Luxembourg,Portugal,Spain,Sweden,Switzerland,Wales};
+
+        //sortFunction(countryList);
         spinnerCountry = (Spinner)findViewById(R.id.dropdown);
         adapter = ArrayAdapter.createFromResource(this,R.array.country_list,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -105,6 +131,68 @@ public class Select extends AppCompatActivity {
 
             }
         });
+
     }
 
+    //Linking the second activity to the third with a button click
+    public void afterSecondClick()
+    {
+        next2 = (Button)findViewById(R.id.button);
+        next2.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v){
+                        Intent proceedAgain = new Intent("com.example.country.Results");
+                        startActivity(proceedAgain);
+                    }
+                }
+        );
+    }
+
+    //Declaring a new inner class known as country
+    private class country
+    {
+        private String name;
+        private int frequency;
+
+        public country(String Name){
+            this.name = Name;
+            this.frequency = 0;
+        }
+
+        public country(){
+            this.name = "";
+            this.frequency = 0;
+        }
+
+        public void setFrequency(int freq){
+            this.frequency = freq;
+        }
+
+        public int getFrequency(){
+            return frequency;
+        }
+    }
+
+    //Sorting algorithm from lowest frequency to highest
+    void sortFunction(country[] List){
+        int count = 0;
+        while(count < List.length){
+            for(int n = 0; n < List.length - 1; n++){
+                if(List[n].getFrequency() > List[n+1].getFrequency())
+                    swapFunction(List, n);
+            }
+            count++;
+        }
+    }
+
+    //Counterpart Method to sortFunction
+    void swapFunction(country[] List, int m){
+        country a, b, c;
+        a = List[m];
+        b = List[m+1];
+        c = a;
+        List[m+1] = c;
+        List[m] = b;
+    }
 }
