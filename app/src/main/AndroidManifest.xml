@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.country">
 
+    <!-- Welcome Activity -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,8 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Select Activity -->
         <activity
             android:name=".Select"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_select"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -28,8 +32,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!-- Result Activity -->
         <activity
             android:name=".Results"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_results"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

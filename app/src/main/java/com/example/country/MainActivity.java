@@ -13,8 +13,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Variable declaration for the "NEXT" button
     private static Button next;
 
+    //Inflating the GUI and the toolbar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         afterFirstClick();
     }
 
+    //Function to link the next button the second activity
     public void afterFirstClick()
     {
         next = (Button)findViewById(R.id.nextButton);
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //Commenting out the settings button in the toolbar as it is not needed
+    //It will be un-commented if it is needed later
     /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
