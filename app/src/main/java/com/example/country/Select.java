@@ -51,29 +51,8 @@ public class Select extends AppCompatActivity {
         setSupportActionBar(toolbar);
         afterSecondClick();
 
-        //Setting protocols for entering values into the text field
-        final TextWatcher numberInput = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try{
-                    countryList[elementPosition].setFrequency(Integer.parseInt(s.toString()));
-                }
-                catch(NumberFormatException e)
-                {
-                    countryList[elementPosition].setFrequency(0);
-                }
-            }
 
-            @Override
-            public void afterTextChanged(Editable s) { }
-        };
-
-        //Creating a listener for the input field
-        EditText inputFrequency = (EditText)findViewById(R.id.inputFrequency);
-        inputFrequency.addTextChangedListener(numberInput);
 
         //sortFunction(countryList);
         spinnerCountry = (Spinner)findViewById(R.id.dropdown);
@@ -173,6 +152,31 @@ public class Select extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v){
+
+                        EditText inputFrequency = (EditText) findViewById(R.id.inputFrequency);
+
+
+                        Spinner spinner = (Spinner)findViewById(R.id.dropdown);
+                        String text = spinner.getSelectedItem().toString();
+
+
+                        int count = 0;
+                        while(count < countryList.length)
+                        {
+                            if((countryList[count]).getName().equals(text))
+                            {
+                                try
+                                {
+                                    countryList[count].setFrequency(Integer.parseInt(inputFrequency.toString()));
+                                }
+                                catch(NumberFormatException e)
+                                {
+                                    countryList[count].setFrequency(0);
+                                }
+                            }
+                            count++;
+                        }
+
                         sortFunction(countryList);
                         Intent proceedAgain = new Intent("com.example.country.Results");
                         proceedAgain.putExtra("firstCountry", countryList[13].getName());
