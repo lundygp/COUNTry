@@ -84,6 +84,8 @@ public class Select extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
 
+                elementPosition = position;
+
                 flagChoiceView = (ImageView) findViewById(R.id.flagChoice);
 
                switch(position)
@@ -91,77 +93,64 @@ public class Select extends AppCompatActivity {
                    case 0:
 
                        flagChoiceView.setImageResource(R.drawable.austriaflag);
-                       elementPosition = position;
+
                    break;
 
                    case 1:
                        flagChoiceView.setImageResource(R.drawable.belgiumflag);
-                       elementPosition = position;
                        break;
 
                    case 2:
                        flagChoiceView.setImageResource(R.drawable.denmarkflag);
-                       elementPosition = position;
                        break;
 
                    case 3:
                        flagChoiceView.setImageResource(R.drawable.englandflag);
-                       elementPosition = position;
                        break;
 
                    case 4:
                        flagChoiceView.setImageResource(R.drawable.franceflag);
-                       elementPosition = position;
                        break;
 
                    case 5:
                        flagChoiceView.setImageResource(R.drawable.germanflag);
-                       elementPosition = position;
                        break;
 
                    case 6:
                        flagChoiceView.setImageResource(R.drawable.irelandflag);
-                       elementPosition = position;
                        break;
 
                    case 7:
                        flagChoiceView.setImageResource(R.drawable.italyflag);
-                       elementPosition = position;
+
                        break;
 
                    case 8:
                        flagChoiceView.setImageResource(R.drawable.luxembourgeflag);
-                       elementPosition = position;
                        break;
 
                    case 9:
                        flagChoiceView.setImageResource(R.drawable.portugalflag);
-                       elementPosition = position;
                        break;
 
                    case 10:
                        flagChoiceView.setImageResource(R.drawable.spainflag);
-                       elementPosition = position;
                        break;
 
                    case 11:
                        flagChoiceView.setImageResource(R.drawable.swedenflag);
-                       elementPosition = position;
                        break;
 
                    case 12:
                        flagChoiceView.setImageResource(R.drawable.switzerlandflag);
-                       elementPosition = position;
                        break;
 
                    case 13:
                        flagChoiceView.setImageResource(R.drawable.walesflag);
-                       elementPosition = position;
                        break;
 
                    default:
                        flagChoiceView.setImageResource(R.drawable.austriaflag);
-                       elementPosition = 0;
                        break;
 
                }
