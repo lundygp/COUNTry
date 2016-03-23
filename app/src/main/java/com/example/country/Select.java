@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,7 +20,7 @@ public class Select extends AppCompatActivity {
     Spinner spinnerCountry;
     ArrayAdapter<CharSequence> adapter;
     public static Button next2;
-    //TextWatcher count;
+    int elementPosition;
 
     //Declaring all objects of type country
     country Austria = new country("Austria");
@@ -50,9 +51,29 @@ public class Select extends AppCompatActivity {
         setSupportActionBar(toolbar);
         afterSecondClick();
 
+        //Setting protocols for entering values into the text field
+        final TextWatcher numberInput = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try{
+                    countryList[elementPosition].setFrequency(Integer.parseInt(s.toString()));
+                }
+                catch(NumberFormatException e)
+                {
+                    countryList[elementPosition].setFrequency(0);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        };
+
         //Creating a listener for the input field
-        /*EditText inputFrequency = (EditText)findViewById(R.id.inputFrequency);
-        inputFrequency.addTextChangedListener(count);*/
+        EditText inputFrequency = (EditText)findViewById(R.id.inputFrequency);
+        inputFrequency.addTextChangedListener(numberInput);
 
         //sortFunction(countryList);
         spinnerCountry = (Spinner)findViewById(R.id.dropdown);
@@ -61,7 +82,7 @@ public class Select extends AppCompatActivity {
         spinnerCountry.setAdapter(adapter);
         spinnerCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
 
                 flagChoiceView = (ImageView) findViewById(R.id.flagChoice);
 
@@ -69,62 +90,78 @@ public class Select extends AppCompatActivity {
                {
                    case 0:
 
-                   flagChoiceView.setImageResource(R.drawable.austriaflag);
+                       flagChoiceView.setImageResource(R.drawable.austriaflag);
+                       elementPosition = position;
                    break;
 
                    case 1:
                        flagChoiceView.setImageResource(R.drawable.belgiumflag);
+                       elementPosition = position;
                        break;
 
                    case 2:
                        flagChoiceView.setImageResource(R.drawable.denmarkflag);
+                       elementPosition = position;
                        break;
 
                    case 3:
                        flagChoiceView.setImageResource(R.drawable.englandflag);
+                       elementPosition = position;
                        break;
 
                    case 4:
                        flagChoiceView.setImageResource(R.drawable.franceflag);
+                       elementPosition = position;
                        break;
 
                    case 5:
                        flagChoiceView.setImageResource(R.drawable.germanflag);
+                       elementPosition = position;
                        break;
 
                    case 6:
                        flagChoiceView.setImageResource(R.drawable.irelandflag);
+                       elementPosition = position;
                        break;
 
                    case 7:
                        flagChoiceView.setImageResource(R.drawable.italyflag);
+                       elementPosition = position;
                        break;
 
                    case 8:
                        flagChoiceView.setImageResource(R.drawable.luxembourgeflag);
+                       elementPosition = position;
                        break;
 
                    case 9:
                        flagChoiceView.setImageResource(R.drawable.portugalflag);
+                       elementPosition = position;
                        break;
 
                    case 10:
                        flagChoiceView.setImageResource(R.drawable.spainflag);
+                       elementPosition = position;
                        break;
 
                    case 11:
                        flagChoiceView.setImageResource(R.drawable.swedenflag);
+                       elementPosition = position;
                        break;
 
                    case 12:
                        flagChoiceView.setImageResource(R.drawable.switzerlandflag);
+                       elementPosition = position;
                        break;
 
                    case 13:
                        flagChoiceView.setImageResource(R.drawable.walesflag);
+                       elementPosition = position;
                        break;
 
-                   default: flagChoiceView.setImageResource(R.drawable.austriaflag);
+                   default:
+                       flagChoiceView.setImageResource(R.drawable.austriaflag);
+                       elementPosition = 0;
                        break;
 
                }
@@ -147,7 +184,14 @@ public class Select extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v){
+                        sortFunction(countryList);
                         Intent proceedAgain = new Intent("com.example.country.Results");
+                        proceedAgain.putExtra("firstCountry", countryList[13].getName());
+                        proceedAgain.putExtra("secondCountry", countryList[12].getName());
+                        proceedAgain.putExtra("thirdCountry", countryList[11].getName());
+                        proceedAgain.putExtra("firstFrequency", countryList[13].getFrequency());
+                        proceedAgain.putExtra("secondFrequency", countryList[12].getFrequency());
+                        proceedAgain.putExtra("thirdFrequency", countryList[11].getFrequency());
                         startActivity(proceedAgain);
                     }
                 }
@@ -176,6 +220,10 @@ public class Select extends AppCompatActivity {
 
         public int getFrequency(){
             return frequency;
+        }
+
+        public String getName(){
+            return name;
         }
     }
 
