@@ -28,14 +28,14 @@ public class Results extends AppCompatActivity {
         TextView countryThree = (TextView)findViewById(R.id.thirdCountry);
         countryThree.setText(extras.getString("thirdCountry"));
 
-        /*TextView freqOne = (TextView)findViewById(R.id.firstFrequency);
-        freqOne.setText(extras.getInt("firstFrequency"));
+        TextView freqOne = (TextView)findViewById(R.id.firstFrequency);
+        freqOne.setText(String.valueOf(extras.getInt("firstFrequency")));
 
         TextView freqTwo = (TextView)findViewById(R.id.secondFrequency);
-        freqTwo.setText(extras.getInt("secondFrequency"));
+        freqTwo.setText(String.valueOf(extras.getInt("secondFrequency")));
 
         TextView freqThree = (TextView)findViewById(R.id.thirdFrequency);
-        freqThree.setText(extras.getInt("thirdFrequency"));*/
+        freqThree.setText(String.valueOf(extras.getInt("thirdFrequency")));
     }
 
 }
