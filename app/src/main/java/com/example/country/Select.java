@@ -63,7 +63,7 @@ public class Select extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
 
-                elementPosition = position;
+
 
                 flagChoiceView = (ImageView) findViewById(R.id.flagChoice);
 
