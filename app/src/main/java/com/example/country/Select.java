@@ -23,20 +23,20 @@ public class Select extends AppCompatActivity {
     int elementPosition;
 
     //Declaring all objects of type country
-    country Austria = new country("Austria");
-    country Belgium = new country("Belgium");
-    country Denmark = new country("Denmark");
-    country England = new country("England");
-    country France = new country("France");
-    country Germany = new country("Germany");
-    country Ireland = new country("Ireland");
-    country Italy = new country("Italy");
-    country Luxembourg = new country("Luxembourg");
-    country Portugal = new country("Portugal");
-    country Spain = new country("Spain");
-    country Sweden = new country("Sweden");
-    country Switzerland = new country("Switzerland");
-    country Wales = new country("Wales");
+    country Austria = new country("Austria", 0);
+    country Belgium = new country("Belgium", 1);
+    country Denmark = new country("Denmark", 2);
+    country England = new country("England", 3);
+    country France = new country("France", 4);
+    country Germany = new country("Germany", 5);
+    country Ireland = new country("Ireland", 6);
+    country Italy = new country("Italy", 7);
+    country Luxembourg = new country("Luxembourg", 8);
+    country Portugal = new country("Portugal", 9);
+    country Spain = new country("Spain", 10);
+    country Sweden = new country("Sweden", 11);
+    country Switzerland = new country("Switzerland", 12);
+    country Wales = new country("Wales", 13);
 
     //Creating an array of type country in preparation for sorting
     country[] countryList = {Austria, Belgium, Denmark,England,France,
@@ -51,10 +51,30 @@ public class Select extends AppCompatActivity {
         setSupportActionBar(toolbar);
         afterSecondClick();
 
+        //Setting protocols for entering values into the text field
+        final TextWatcher numberInput = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try{
+                    countryList[elementPosition].setFrequency(Integer.parseInt(s.toString()));
+                }
+                catch(NumberFormatException e)
+                {
+                    countryList[elementPosition].setFrequency(0);
+                }
+            }
 
+            @Override
+            public void afterTextChanged(Editable s) { }
+        };
 
-        //sortFunction(countryList);
+        //Creating a listener for the input field
+        EditText inputFrequency = (EditText)findViewById(R.id.inputFrequency);
+        inputFrequency.addTextChangedListener(numberInput);
+
         spinnerCountry = (Spinner)findViewById(R.id.dropdown);
         adapter = ArrayAdapter.createFromResource(this,R.array.country_list,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -63,16 +83,14 @@ public class Select extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
 
-
-
                 flagChoiceView = (ImageView) findViewById(R.id.flagChoice);
+                elementPosition = position;
 
                switch(position)
                {
                    case 0:
 
                        flagChoiceView.setImageResource(R.drawable.austriaflag);
-
                    break;
 
                    case 1:
@@ -101,7 +119,6 @@ public class Select extends AppCompatActivity {
 
                    case 7:
                        flagChoiceView.setImageResource(R.drawable.italyflag);
-
                        break;
 
                    case 8:
@@ -152,32 +169,7 @@ public class Select extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v){
-
-                        EditText inputFrequency = (EditText) findViewById(R.id.inputFrequency);
-
-
-                        Spinner spinner = (Spinner)findViewById(R.id.dropdown);
-                        String text = spinner.getSelectedItem().toString();
-
-
-                        int count = 0;
-                        while(count < countryList.length)
-                        {
-                            if((countryList[count]).getName().equals(text))
-                            {
-                                try
-                                {
-                                    countryList[count].setFrequency(Integer.parseInt(inputFrequency.toString()));
-                                }
-                                catch(NumberFormatException e)
-                                {
-                                    countryList[count].setFrequency(0);
-                                }
-                            }
-                            count++;
-                        }
-
-                        sortFunction(countryList);
+                        sortFunction(countryList, "Freq");
                         Intent proceedAgain = new Intent("com.example.country.Results");
                         proceedAgain.putExtra("firstCountry", countryList[13].getName());
                         proceedAgain.putExtra("secondCountry", countryList[12].getName());
@@ -185,6 +177,7 @@ public class Select extends AppCompatActivity {
                         proceedAgain.putExtra("firstFrequency", countryList[13].getFrequency());
                         proceedAgain.putExtra("secondFrequency", countryList[12].getFrequency());
                         proceedAgain.putExtra("thirdFrequency", countryList[11].getFrequency());
+                        sortFunction(countryList, "Position");
                         startActivity(proceedAgain);
                     }
                 }
@@ -196,9 +189,11 @@ public class Select extends AppCompatActivity {
     {
         private String name;
         private int frequency;
+        private int initialPosition;
 
-        public country(String Name){
+        public country(String Name, int initial){
             this.name = Name;
+            this.initialPosition = initial;
             this.frequency = 0;
         }
 
@@ -215,24 +210,34 @@ public class Select extends AppCompatActivity {
             return frequency;
         }
 
+        public int getInitialPosition() {
+            return initialPosition;
+        }
+
         public String getName(){
             return name;
         }
     }
 
-    //Sorting algorithm from lowest frequency to highest
-    void sortFunction(country[] List){
+    //Sorting algorithm for elements of the countryList array
+    void sortFunction(country[] List, String type){
         int count = 0;
         while(count < List.length){
             for(int n = 0; n < List.length - 1; n++){
-                if(List[n].getFrequency() > List[n+1].getFrequency())
-                    swapFunction(List, n);
+                if(type == "Freq") {                        //This sorts the elements in order of frequency
+                    if (List[n].getFrequency() > List[n + 1].getFrequency())
+                        swapFunction(List, n);
+                }
+                else{                                       //This sorts the elements in alphabetical order
+                    if (List[n].getInitialPosition() > List[n + 1].getInitialPosition())
+                        swapFunction(List, n);
+                }
             }
             count++;
         }
     }
 
-    //Counterpart Method to sortFunction
+    //Counterpart Method to sortFunction        This swaps adjacent elements of an array if called
     void swapFunction(country[] List, int m){
         country a, b, c;
         a = List[m];
