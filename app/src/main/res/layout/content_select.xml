@@ -12,7 +12,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.country.Select"
     tools:showIn="@layout/activity_select"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@color/backgroundColour">
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,7 +23,8 @@
         android:id="@+id/chooseCountryTextView"
         android:layout_gravity="center_horizontal|top"
         android:textAlignment="gravity"
-        android:textSize="@dimen/headingSize" />
+        android:textSize="@dimen/headingSize"
+        android:textColor="@color/textColour" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -42,7 +44,8 @@
         android:id="@+id/frequencyTextView"
         android:gravity="center"
         android:layout_marginTop="30dp"
-        android:textSize="@dimen/headingSize" />
+        android:textSize="@dimen/headingSize"
+        android:textColor="@color/textColour" />
 
     <EditText
         android:layout_width="match_parent"

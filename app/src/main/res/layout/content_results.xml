@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.country.Results"
-    tools:showIn="@layout/activity_results">
+    tools:showIn="@layout/activity_results"
+    android:background="@color/backgroundColour">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -28,7 +29,8 @@
             android:id="@+id/countryHeading"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/headingSize" />
+            android:textSize="@dimen/headingSize"
+            android:textColor="@color/textColour" />
 
         <TextView
             android:layout_width="0dp"
@@ -38,7 +40,8 @@
             android:id="@+id/frequencyHeading"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/headingSize" />
+            android:textSize="@dimen/headingSize"
+            android:textColor="@color/textColour" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,7 +56,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/firstPosition"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
 
         <TextView
             android:layout_width="0dp"
@@ -62,7 +66,8 @@
             android:id="@+id/firstCountry"
             android:layout_weight="1 "
             android:gravity="center"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
 
         <TextView
             android:layout_width="0dp"
@@ -71,7 +76,8 @@
             android:id="@+id/firstFrequency"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,7 +92,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/secondPosition"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
 
         <TextView
             android:layout_width="0dp"
@@ -95,7 +102,8 @@
             android:id="@+id/secondCountry"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
 
         <TextView
             android:layout_width="0dp"
@@ -104,7 +112,8 @@
             android:id="@+id/secondFrequency"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
     </LinearLayout>
 
     <LinearLayout
@@ -119,7 +128,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/thirdPosition"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
 
         <TextView
             android:layout_width="0dp"
@@ -128,7 +138,8 @@
             android:id="@+id/thirdCountry"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
 
         <TextView
             android:layout_width="0dp"
@@ -137,6 +148,7 @@
             android:id="@+id/thirdFrequency"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="@dimen/resultTextSize" />
+            android:textSize="@dimen/resultTextSize"
+            android:textColor="@color/textColour" />
     </LinearLayout>
 </LinearLayout>
