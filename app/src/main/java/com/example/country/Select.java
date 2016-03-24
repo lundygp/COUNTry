@@ -52,6 +52,7 @@ public class Select extends AppCompatActivity {
         afterSecondClick();
 
         //Setting protocols for entering values into the text field
+
         final TextWatcher numberInput = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -71,10 +72,14 @@ public class Select extends AppCompatActivity {
             public void afterTextChanged(Editable s) { }
         };
 
+
         //Creating a listener for the input field
         EditText inputFrequency = (EditText)findViewById(R.id.inputFrequency);
         inputFrequency.addTextChangedListener(numberInput);
 
+
+        /* Interpreting the date from the spinner drop down menu, passing it through an adapter so that the position
+          of the selected item can be gathered. */
         spinnerCountry = (Spinner)findViewById(R.id.dropdown);
         adapter = ArrayAdapter.createFromResource(this,R.array.country_list,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -82,6 +87,10 @@ public class Select extends AppCompatActivity {
         spinnerCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
+
+                /* Using a switch statement and the .setImageResource method to change the image input into the
+                   "flagChoiceView" image view so that the correct flag is displayed depending on the position of
+                   the selected country in the spinner drop down. */
 
                 flagChoiceView = (ImageView) findViewById(R.id.flagChoice);
                 elementPosition = position;
@@ -161,7 +170,8 @@ public class Select extends AppCompatActivity {
 
     }
 
-    //Linking the second activity to the third with a button click
+    /* Sorting the array into frequency order, setting the objects to be used in the next activity,
+       then sorting the names into alphabetical order and proceeding to the next activity. */
     public void afterSecondClick()
     {
         next2 = (Button)findViewById(R.id.button);
@@ -169,6 +179,7 @@ public class Select extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v){
+
                         sortFunction(countryList, "Freq");
                         Intent proceedAgain = new Intent("com.example.country.Results");
                         proceedAgain.putExtra("firstCountry", countryList[13].getName());
@@ -179,6 +190,8 @@ public class Select extends AppCompatActivity {
                         proceedAgain.putExtra("thirdFrequency", countryList[11].getFrequency());
                         sortFunction(countryList, "Position");
                         startActivity(proceedAgain);
+
+
                     }
                 }
         );
@@ -237,7 +250,7 @@ public class Select extends AppCompatActivity {
         }
     }
 
-    //Counterpart Method to sortFunction        This swaps adjacent elements of an array if called
+    //Counterpart Method to sortFunction which swaps the objects if needed.
     void swapFunction(country[] List, int m){
         country a, b, c;
         a = List[m];
