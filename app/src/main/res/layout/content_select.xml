@@ -31,7 +31,8 @@
         android:spinnerMode="dropdown"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:longClickable="false" />
 
     <TextView
         android:layout_width="match_parent"

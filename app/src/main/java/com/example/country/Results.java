@@ -19,23 +19,33 @@ public class Results extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Bundle extras = getIntent().getExtras();
 
+        //Displayng the information passed from the previous activity
         TextView countryOne = (TextView)findViewById(R.id.firstCountry);
-        countryOne.setText(extras.getString("firstCountry"));
+        TextView freqOne = (TextView)findViewById(R.id.firstFrequency);
+        TextView posOne = (TextView)findViewById(R.id.firstPosition);
+        if(extras.getInt("firstFrequency") != 0){
+            countryOne.setText(extras.getString("firstCountry"));
+            freqOne.setText(String.valueOf(extras.getInt("firstFrequency")));
+            posOne.setText("1");
+        }
 
         TextView countryTwo = (TextView)findViewById(R.id.secondCountry);
-        countryTwo.setText(extras.getString("secondCountry"));
+        TextView freqTwo = (TextView)findViewById(R.id.secondFrequency);
+        TextView posTwo = (TextView)findViewById(R.id.secondPosition);
+        if(extras.getInt("secondFrequency") != 0){
+            countryTwo.setText(extras.getString("secondCountry"));
+            freqTwo.setText(String.valueOf(extras.getInt("secondFrequency")));
+            posTwo.setText("2");
+        }
 
         TextView countryThree = (TextView)findViewById(R.id.thirdCountry);
-        countryThree.setText(extras.getString("thirdCountry"));
-
-        TextView freqOne = (TextView)findViewById(R.id.firstFrequency);
-        freqOne.setText(String.valueOf(extras.getInt("firstFrequency")));
-
-        TextView freqTwo = (TextView)findViewById(R.id.secondFrequency);
-        freqTwo.setText(String.valueOf(extras.getInt("secondFrequency")));
-
         TextView freqThree = (TextView)findViewById(R.id.thirdFrequency);
-        freqThree.setText(String.valueOf(extras.getInt("thirdFrequency")));
+        TextView posThree = (TextView)findViewById(R.id.thirdPosition);
+        if(extras.getInt("thirdFrequency") != 0){
+            countryThree.setText(extras.getString("thirdCountry"));
+            freqThree.setText(String.valueOf(extras.getInt("thirdFrequency")));
+            posThree.setText("3");
+        }
     }
 
 }

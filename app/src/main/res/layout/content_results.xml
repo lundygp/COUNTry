@@ -49,10 +49,16 @@
         android:layout_marginTop="@dimen/resultsMarginSpacing">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/firstPosition"
+            android:textSize="@dimen/resultTextSize" />
+
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
             android:id="@+id/firstCountry"
             android:layout_weight="1 "
             android:gravity="center"
@@ -62,7 +68,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
             android:id="@+id/firstFrequency"
             android:layout_weight="1"
             android:gravity="center"
@@ -77,10 +82,16 @@
         android:layout_marginTop="@dimen/resultsMarginSpacing">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/secondPosition"
+            android:textSize="@dimen/resultTextSize" />
+
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
             android:id="@+id/secondCountry"
             android:layout_weight="1"
             android:gravity="center"
@@ -90,7 +101,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
             android:id="@+id/secondFrequency"
             android:layout_weight="1"
             android:gravity="center"
@@ -105,10 +115,16 @@
         android:layout_marginTop="@dimen/resultsMarginSpacing">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/thirdPosition"
+            android:textSize="@dimen/resultTextSize" />
+
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
             android:id="@+id/thirdCountry"
             android:layout_weight="1"
             android:gravity="center"
@@ -118,7 +134,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
             android:id="@+id/thirdFrequency"
             android:layout_weight="1"
             android:gravity="center"
