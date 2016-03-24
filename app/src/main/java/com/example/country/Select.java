@@ -23,7 +23,7 @@ public class Select extends AppCompatActivity {
     public static Button next2;
     int elementPosition;
 
-    //Declaring all objects of type country. Constructor @ line 202
+    //Instantiating objects of type country. Constructor @ line 202
     country Austria = new country("Austria", 0);
     country Belgium = new country("Belgium", 1);
     country Denmark = new country("Denmark", 2);
