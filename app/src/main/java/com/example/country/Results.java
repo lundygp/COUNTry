@@ -19,7 +19,9 @@ public class Results extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Bundle extras = getIntent().getExtras();
 
-        //Displayng the information passed from the previous activity
+        /* Displaying the information passed from the previous activity and ensuring no countries with a
+           frequency of 0 are shown. */
+
         TextView countryOne = (TextView)findViewById(R.id.firstCountry);
         TextView freqOne = (TextView)findViewById(R.id.firstFrequency);
         TextView posOne = (TextView)findViewById(R.id.firstPosition);

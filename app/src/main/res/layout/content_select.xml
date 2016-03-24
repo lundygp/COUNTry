@@ -60,6 +60,8 @@
         android:layout_height="200dp"
         android:layout_marginTop="20dp">
 
+
+        <!-- Image View to display different country flags, initially set to Austrian Flag-->
         <ImageView
             android:id="@+id/flagChoice"
             android:layout_width="match_parent"
