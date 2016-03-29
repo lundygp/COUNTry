@@ -43,6 +43,13 @@ public class Select extends AppCompatActivity {
     country[] countryList = {Austria, Belgium, Denmark,England,France,
             Germany,Ireland,Italy,Luxembourg,Portugal,Spain,Sweden,Switzerland,Wales};
 
+    //Creating an array of images
+    int[] flagList = new int[]{ R.drawable.austriaflag,R.drawable.belgiumflag,R.drawable.denmarkflag,
+            R.drawable.englandflag,R.drawable.franceflag,R.drawable.germanflag,
+            R.drawable.irelandflag,R.drawable.italyflag,R.drawable.luxembourgeflag,
+            R.drawable.portugalflag,R.drawable.spainflag,R.drawable.swedenflag,
+            R.drawable.switzerlandflag,R.drawable.walesflag};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -96,70 +103,9 @@ public class Select extends AppCompatActivity {
                 flagChoiceView = (ImageView) findViewById(R.id.flagChoice);
                 elementPosition = position;
 
-               switch(position)
-               {
-                   case 0:
-
-                       flagChoiceView.setImageResource(R.drawable.austriaflag);
-                   break;
-
-                   case 1:
-                       flagChoiceView.setImageResource(R.drawable.belgiumflag);
-                       break;
-
-                   case 2:
-                       flagChoiceView.setImageResource(R.drawable.denmarkflag);
-                       break;
-
-                   case 3:
-                       flagChoiceView.setImageResource(R.drawable.englandflag);
-                       break;
-
-                   case 4:
-                       flagChoiceView.setImageResource(R.drawable.franceflag);
-                       break;
-
-                   case 5:
-                       flagChoiceView.setImageResource(R.drawable.germanflag);
-                       break;
-
-                   case 6:
-                       flagChoiceView.setImageResource(R.drawable.irelandflag);
-                       break;
-
-                   case 7:
-                       flagChoiceView.setImageResource(R.drawable.italyflag);
-                       break;
-
-                   case 8:
-                       flagChoiceView.setImageResource(R.drawable.luxembourgeflag);
-                       break;
-
-                   case 9:
-                       flagChoiceView.setImageResource(R.drawable.portugalflag);
-                       break;
-
-                   case 10:
-                       flagChoiceView.setImageResource(R.drawable.spainflag);
-                       break;
-
-                   case 11:
-                       flagChoiceView.setImageResource(R.drawable.swedenflag);
-                       break;
-
-                   case 12:
-                       flagChoiceView.setImageResource(R.drawable.switzerlandflag);
-                       break;
-
-                   case 13:
-                       flagChoiceView.setImageResource(R.drawable.walesflag);
-                       break;
-
-                   default:
-                       flagChoiceView.setImageResource(R.drawable.austriaflag);
-                       break;
-
-               }
+                //Set and return the flag for each selected country.
+                countryList[elementPosition].setFlagPosition(elementPosition);
+                flagChoiceView.setImageResource(flagList[countryList[elementPosition].getFlagPosition()]);
 
             }
 
@@ -204,11 +150,13 @@ public class Select extends AppCompatActivity {
         private String name;
         private int frequency;
         private int initialPosition;
+        private int flagPosition;
 
         public country(String Name, int initial){
             this.name = Name;
             this.initialPosition = initial;
             this.frequency = 0;
+            this.flagPosition = 0;
         }
 
         public country(){
@@ -226,6 +174,16 @@ public class Select extends AppCompatActivity {
 
         public int getInitialPosition() {
             return initialPosition;
+        }
+
+        public void setFlagPosition(int flagPos)
+        {
+            this.flagPosition = flagPos;
+        }
+
+        public int getFlagPosition()
+        {
+            return flagPosition;
         }
 
         public String getName(){
